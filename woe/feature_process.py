@@ -381,7 +381,7 @@ def woe_trans(dvar,civ):
 
     return var
 
-def proc_woe_discrete(df,var,global_bt,global_gt,min_sample,alpha=0.01):
+def proc_woe_discrete(df,var,global_bt,global_gt,min_sample,alpha=0.01, silent=False):
     '''
     process woe transformation of discrete variables
     :param df:
@@ -391,8 +391,9 @@ def proc_woe_discrete(df,var,global_bt,global_gt,min_sample,alpha=0.01):
     :param min_sample:
     :return:
     '''
-    s = 'process discrete variable:'+str(var)
-    print(s.center(60, '-'))
+    if not silent:
+        s = 'process discrete variable:'+str(var)
+        print(s.center(60, '-'))
 
     df = df[[var,'target']]
     div = DisInfoValue()
@@ -448,7 +449,7 @@ def proc_woe_discrete(df,var,global_bt,global_gt,min_sample,alpha=0.01):
     return civ
 
 
-def proc_woe_continuous(df,var,global_bt,global_gt,min_sample,alpha=0.01):
+def proc_woe_continuous(df,var,global_bt,global_gt,min_sample,alpha=0.01, silent=False):
     '''
     process woe transformation of discrete variables
     :param df:
@@ -458,8 +459,9 @@ def proc_woe_continuous(df,var,global_bt,global_gt,min_sample,alpha=0.01):
     :param min_sample:
     :return:
     '''
-    s = 'process continuous variable:'+str(var)
-    print(s.center(60, '-'))
+    if not silent:
+        s = 'process continuous variable:'+str(var)
+        print(s.center(60, '-'))
     df = df[[var,'target']]
     iv_tree = binning_data_split(df, var,global_bt,global_gt,min_sample,alpha)
 

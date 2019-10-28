@@ -36,5 +36,6 @@ setup(
         'numpy>=1.11.3',
         'scipy>=0.18.1',
         'matplotlib>=2.0.0',
+        'tqdm'
     ]
 )
