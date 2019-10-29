@@ -395,7 +395,7 @@ def proc_woe_discrete(df,var,global_bt,global_gt,min_sample,alpha=0.01, silent=F
         s = 'process discrete variable:'+str(var)
         print(s.center(60, '-'))
 
-    df = df[[var,'target']]
+    df = df[[var,'target']].copy()
     div = DisInfoValue()
     div.var_name = var
     rdict = {}
